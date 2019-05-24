@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
@@ -28,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Set Public
-app.use(express.static(__dirname + '../public'));
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Home Route
 app.get('/', (req, res) => {
