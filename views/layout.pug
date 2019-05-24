@@ -1,0 +1,17 @@
+- var year = new Date();
+- year = year.getFullYear();
+
+doctype html
+html
+	head
+		block title
+		link(rel='stylesheet' href='css/style.css')
+body
+	nav
+		p I am nav
+	.container
+		block content
+		br
+		hr
+		footer
+			p &copy; Copyright #{year}
