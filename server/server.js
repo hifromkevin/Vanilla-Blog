@@ -31,17 +31,30 @@ app.use(bodyParser.json());
 // Set Public
 app.use(express.static(path.join(__dirname, '../public')));
 
+// app.get('*', (req, res, next) => {
+//   res.locals.user = req.user || null;
+//   next(); 
+// });
+
 // Home Route
 app.get('/', (req, res) => {
 	Article.find({}, (err, articles) => {
 		if(err) {
 			console.log(err);
 		} else {
-			res.render('index', {
-				title: 'Homepage',
-				heading: 'Welcome to my app!',
-				articles: articles
-			});
+			// if (req.user) {
+				res.render('index', {
+					title: 'Homepage',
+					heading: 'Welcome to my app!',
+					articles: articles
+				});
+			// } 
+			// else {
+			// 	res.render('login', {
+			// 		title: 'Log In',
+			// 		heading: 'Please Log In'
+			// 	});
+			// }
 		};
 	})
 });

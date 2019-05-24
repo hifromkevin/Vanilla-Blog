@@ -1,0 +1,13 @@
+extends layout
+block title
+	title #{title}
+block content
+	h1 #{heading}
+	form(method='POST', action='/login').col-sm-6
+		#form-group
+			label Username or Email:
+			input.form-control(name='title', type='text')
+			label Password: 
+			input.form-control(name='category' type='text')
+
+			input.btn.btn-primary.btn-block.mt-5(type='submit', value='Submit')
