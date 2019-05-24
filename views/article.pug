@@ -14,4 +14,7 @@ block content
 
 	hr
 
-	a(href="/") Go Home
+	a.btn.btn-default(href=`/articles/edit/${article._id}`) Edit
+	a.btn.btn-danger.delete-article(href="#", data-id=article._id) Delete
+	p
+		a(href="/") Go Home

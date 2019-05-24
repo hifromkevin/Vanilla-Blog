@@ -1,0 +1,26 @@
+extends layout
+block title
+	title #{title}
+block content
+	h1 #{heading}
+	form(method='POST', action='/articles/edit/'+article._id).col-sm-6
+		#form-group
+			label Title:
+			input.form-control(name='title', type='text' value=article.title)
+			label Author:
+			input.form-control(name='author', type='text' value=article.author)
+			label Body: 
+			textarea.form-control(name='body') #{article.body}
+			label Category: 
+			select.form-control(name='category' value=article.category)
+				option -
+				option(value='Horror') Horror
+				option(value='Mystery') Mystery
+				option(value='Fiction') Fiction
+				option(value='Politics') Politics
+				option(value='Non-Fiction') Non-Fiction
+
+			input.btn.btn-primary.btn-block.mt-5(type='submit', value='Submit')
+
+		p
+			a(href='/articles/'+article._id) Go Back
