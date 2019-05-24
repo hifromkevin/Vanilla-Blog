@@ -3,4 +3,10 @@ block title
 	title #{title}
 block content
 	h1 #{heading}
-	p hey!
+	ul.list-group
+		each article, i in articles
+			li.list-group-item
+				a(href="/articles/"+article._id )= article.title 
+				p By #{article.author}
+				p #{article.timestamp}
+				hr

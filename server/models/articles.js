@@ -5,7 +5,7 @@ let articleSchema = mongoose.Schema({
 	title: String,
 	body: String,
 	category: String,
-	timestamp: Date
+	timestamp: String
 });
 
 let Article = module.exports = mongoose.model('Article', articleSchema);
