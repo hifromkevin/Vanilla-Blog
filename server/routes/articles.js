@@ -35,8 +35,18 @@ router.post('/add', (req, res) => {
 			res.redirect('/');
 		}
 	})
-
 });
+
+router.get('/:id', (req, res) => {
+	Article.findById(req.params.id, (err, article) => {
+		res.render('article', {
+			title: 'Homepage',
+			heading: 'Welcome to my app!',
+			article: article
+		});
+	});
+});
+
 
 module.exports = router;
 
