@@ -6,7 +6,16 @@ let articleSchema = mongoose.Schema({
 	body: String,
 	category: String,
 	timestamp: String,
-	lastEdited: String
+	lastEdited: String,
+	number: Number
 });
 
-let Article = module.exports = mongoose.model('Article', articleSchema);
+let Article =  mongoose.model('Article', articleSchema);
+
+function findSomeArticles(start, callback) {
+	articleSchema.find({}, callback).where('number').get(start).limit(1).sort({id: 1});
+}
+
+module.exports = Article;
+
+exports.findSomeArticles = findSomeArticles;

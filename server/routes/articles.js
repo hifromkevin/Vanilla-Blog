@@ -13,6 +13,12 @@ router.get('/add', (req, res) => {
 
 // Post the new user
 router.post('/add', (req, res) => {
+
+	let num;
+
+	if(!num) num = 0;
+	console.log(num, "!!!")
+
 	const d = new Date();
 	const months = [
 		'January', 'February', 'March', 
@@ -28,6 +34,7 @@ router.post('/add', (req, res) => {
 	article.body = req.body.body;
 	article.category = req.body.category;
 	article.timestamp = postDate;
+	article.number = ++num;
 
 	article.save(err => {
 		if (err) {
@@ -64,7 +71,7 @@ router.post('/edit/:id', (req, res) => {
 			console.log(err);
 			return;
 		} else {
-			console.log(`Article ${req.params.title} has been updated.`)
+			console.log(`Article ${req.body.title} has been updated.`)
 			res.redirect('/');
 		};
 	});

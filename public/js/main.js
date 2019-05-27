@@ -13,3 +13,11 @@ $(document).ready(() => {
 		});
 	});
 });
+
+// handleScroll(event) {
+// 	const elem = event.currentTarget;
+
+// 	if (elem.scrollHeight - elem.offsetHeight === elem.scrollTop) {
+// 	  this.getScheduledExperiences();
+// 	}
+// }

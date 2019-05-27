@@ -20,8 +20,10 @@ db.on('error', err => { console.log('That ain\'t right...', err)});
 // Models
 let Article = require('./models/articles');
 
+console.log('ETYYYY!',Article);
+
 //View Engine
-app.set('../views', __dirname + '../views');
+app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'pug');
 
 //Body Parser
@@ -37,6 +39,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 // });
 
 // Home Route
+
 app.get('/', (req, res) => {
 	Article.find({}, (err, articles) => {
 		if(err) {
@@ -56,8 +59,10 @@ app.get('/', (req, res) => {
 			// 	});
 			// }
 		};
-	})
+	});
 });
+
+
 
 // Route Files
 let articles = require('./routes/articles');
